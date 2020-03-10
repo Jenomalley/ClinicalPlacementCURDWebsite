@@ -1,0 +1,9 @@
+<form method="post" action="index.php?pageID=placementsAdd">
+<div class="form-group">
+<label for="PlacementID">Placement ID</label><input required type="text" class="form-control" id="PlacementID" name="PlacementID" pattern="[A-Z0-9]{5,10}" title="PlacementID - Upper Case Letters and digits, 5-10 characters">
+<label for="PlacementName">Placement Name</label><input required type="text" class="form-control" id="PlacementName" name="PlacementName" pattern="[a-zA-Z0-9óáéí' ]{1,45}" title="Placement Name (up to 45 Characters)">
+<label for="Credits">Credits</label><input required type="text" class="form-control" id="Credits" name="Credits" pattern="[0-9]{1,2}" title="Credits (Integer Value)" >
+<label for="PlacementCoordinator">Placement Coordinator ID</label><input required type="text" class="form-control" id="Lecturer" name="Lecturer" pattern="[a-zA-Z0-9]{5,10}" title="Enter a valid Lecturer ID">
+</div>
+<button type="submit" class="btn btn-default" name="btn" value='placementAdd'>Add Placement</button>
+</form>
