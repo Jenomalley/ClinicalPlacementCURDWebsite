@@ -37,7 +37,7 @@ class User extends Model {
     public function login($userID, $password) {
         //This login function checks both the student and coordinator tables for valid login credentials
         //encrypt the password
-//        $password = hash('ripemd160', $password);
+        $password = hash('ripemd160', $password);
 
         //set up the SQL query strings
         $SQL1 = "SELECT coordinator_name FROM coordinator WHERE coordinator_id='$userID' AND password='$password'";
@@ -113,11 +113,11 @@ class User extends Model {
         $coordinatorusername = $this->db->real_escape_string($postArray['coordinatorname']);
 
         // $lastName=$this->db->real_escape_string($postArray['coordinatorLastName']);
-        $password = $this->db->real_escape_string($postArray['password']);
+        $password = $this->db->real_escape_string($postArray['ClinicalCoordinatorPass1']);
         //encrypt the password
-        $password = hash('ripemd160', $password1);
+        $password = hash('ripemd160', $password);
         //construct the INSERT SQL
-        $sql = "INSERT INTO  coordinator (coordinatorid,coordinatorname,password) VALUES ('$coordinatorid','$coordinatorname','$password')";
+        $sql = "INSERT INTO  coordinator (coordinator_id,coordinator_name,password) VALUES ('$coordinatorid','$coordinatorusername','$password')";
 
         //$sql="INSERT INTO lecturer (LectID,FirstName,LastName,PassWord) VALUES ('".$postArray['lectID']."','".$postArray['lectFirstName']."','".$postArray['lectLastName']."','".$postArray['lectPass1']."')";
         //execute the insert query
