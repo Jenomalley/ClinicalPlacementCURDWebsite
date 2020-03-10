@@ -44,17 +44,10 @@ class User extends Model {
         $SQL2 = "SELECT student_name FROM student WHERE student_id='$userID'";
 
         //execute the queries to get the 2 resultsets
-        echo "<h1>" . $SQL1 . "</h1>";
-        echo "<h1>" . $SQL2 . "</h1>";
-
+      
         $resultSet1 = $this->db->query($SQL1); //query the  placement coordinator table
         $resultSet2 = $this->db->query($SQL2); //query the student table
 
-        echo "<h1>debug</h1>";
-
-        echo "<h1>" . $resultSet1->num_rows  . "</h1>";
-        echo "<h1>" . $resultSet2->num_rows  . "</h1>";
-        echo "<h1>debug</h1>";
         //use the resultsets to determine if login is valid and which type of user has logged on. 
         if (($resultSet1->num_rows === 1)OR ( $resultSet2->num_rows === 1)) {
 
