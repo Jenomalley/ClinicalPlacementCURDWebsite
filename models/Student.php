@@ -111,7 +111,7 @@ class Student extends Model {
 		    $sql = 'SELECT  studentid,firstname,lastname FROM students WHERE studentID="' . $this->postArray['studentID'] . '"';
 
 		    $this->panelContent_2 .= '<p>Selected Student ID: ' . $this->postArray['studentID'] . '</p></br>';
-		    //$this->panelContent_2='SQL Query= '.$sql; //comment out for diagnostic purposes
+		    
 		    if ((@$rs = $this->db->query($sql)) && ($rs->num_rows)) {  //execute the query and check it worked and returned data    
 			//iterate through the resultset to create a HTML table
 			$this->panelContent_2 .= '<table class="table table-bordered">';
