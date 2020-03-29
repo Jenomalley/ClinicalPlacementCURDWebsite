@@ -44,27 +44,27 @@ class Navigation extends Model {
 			//$this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=home">Home</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=studentQuery">Student Query</a></li>';
 			$this->menuNav .= "$dropdownMenu";  //the modules drop down menu
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=grades">Grades</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calculator">Calendar</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=logout">Log Out</a></li>';
 			break;
-		    case "messages":
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=studentQuery">Student Query</a></li>';
-			$this->menuNav .= "$dropdownMenu";  //the modules drop down menu
+		//    case "messages":
+		//	$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
+		//	$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=studentQuery">Student Query</a></li>';
+		//	$this->menuNav .= "$dropdownMenu";  //the modules drop down menu
 			//$this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=messages">Messages</a></li>';  
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=grades">Grades</a></li>';
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=logout">Log Out</a></li>';
-			break;
+		//	$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=grades">Grades</a></li>';
+		//	$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
+		//	$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
+		//	$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=logout">Log Out</a></li>';
+		//	break;
 		    case "studentQuery":
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
 			//$this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=studentQuery">Student Query</a></li>';
 			$this->menuNav .= "$dropdownMenu";  //the modules drop down menu
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=grades">Grades</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
@@ -74,7 +74,7 @@ class Navigation extends Model {
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=studentQuery">Student Query</a></li>';
 			$this->menuNav .= "$dropdownMenu";  //the modules drop down menu
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=grades">Grades</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
@@ -84,7 +84,7 @@ class Navigation extends Model {
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=studentQuery">Student Query</a></li>';
 			$this->menuNav .= "$dropdownMenu";  //the modules drop down menu
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
 			//$this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=grades">Grades</a></li>';  
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
@@ -94,7 +94,7 @@ class Navigation extends Model {
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=studentQuery">Student Query</a></li>';
 			$this->menuNav .= "$dropdownMenu";  //the modules drop down menu
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=grades">Grades</a></li>';
 			//$this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=account">My Account</a></li>';
 			//$this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=calendar">Calendar</a></li>';
@@ -104,7 +104,7 @@ class Navigation extends Model {
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=studentQuery">Student Query</a></li>';
 			$this->menuNav .= "$dropdownMenu";  //the modules drop down menu
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=grades">Grades</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
@@ -119,7 +119,7 @@ class Navigation extends Model {
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=studentQuery">Student Query</a></li>';
 			$this->menuNav .= "$dropdownMenu";  //the modules drop down menu
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=grades">Grades</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
 			//$this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=calendar">Calendar</a></li>';
@@ -130,7 +130,7 @@ class Navigation extends Model {
 		switch ($this->pageID) {
 		    case "home":
 			//$this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=home">Home</a></li>';
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=mygrades">My Grades</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
@@ -146,7 +146,7 @@ class Navigation extends Model {
 			break;
 		    case "mygrades":
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=mygrades">My Grades</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calculator">Calendar</a></li>';
@@ -154,7 +154,7 @@ class Navigation extends Model {
 			break;
 		    case "account":
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=mygrades">My Grades</a></li>';
 			//$this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=account">My Account</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
@@ -170,7 +170,7 @@ class Navigation extends Model {
 //                        break;                    
 		    case "logout":  //DUMMY CASE - this case is not actually needed!!
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=mygrades">My Grades</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
@@ -178,7 +178,7 @@ class Navigation extends Model {
 			break;
 		    default:
 			//$this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=home">Home</a></li>';
-			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
+			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=mygrades">My Grades</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=account">My Account</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
