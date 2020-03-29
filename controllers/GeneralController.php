@@ -185,9 +185,9 @@ class GeneralController extends Controller {
 
 	echo '<h2>General Controller Class - Debug information</h2><br>';
 
-	echo '<div class="container">';  //INNER DIV
+	echo '<div class="container"    style="background-color: #AAAAAA">';  //INNER DIV
 	//SECTION 1
-	echo '<section style="background-color: #AAAAAA">';
+	echo '<section style="background-color: #AAAAAA" >';
 	echo '<h3>General Controller (CLASS) properties</h3>';
 	echo '<section style="background-color: #BBBBB">';
 	echo '<h4>User Logged in Status:</h4>';

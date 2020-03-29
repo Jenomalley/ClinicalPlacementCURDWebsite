@@ -108,9 +108,9 @@ class Student extends Model {
 	if ($this->loggedin & isset($this->postArray['btn'])) {  //check that the user is logged on and a button is pressed
 	    switch ($this->postArray['btn']) { //check which button is pressed           
 		case 'studentQuery':  //the student query button has been pressed
-		    $sql = 'SELECT  studentid,firstname,lastname FROM students WHERE studentID="' . $this->postArray['studentID'] . '"';
+		    $sql = 'SELECT  studentid,firstname,lastname FROM students WHERE student_id="' . $this->postArray['student_id'] . '"';
 
-		    $this->panelContent_2 .= '<p>Selected Student ID: ' . $this->postArray['studentID'] . '</p></br>';
+		    $this->panelContent_2 .= '<p>Selected Student ID: ' . $this->postArray['student_id'] . '</p></br>';
 		    
 		    if ((@$rs = $this->db->query($sql)) && ($rs->num_rows)) {  //execute the query and check it worked and returned data    
 			//iterate through the resultset to create a HTML table

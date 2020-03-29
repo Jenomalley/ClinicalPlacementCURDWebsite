@@ -4,7 +4,7 @@
  * Class: StudentController
  * This is the controller for the STUDENT user type
  *
- * @author gerry.guinane
+ *
  * 
  */
 class StudentController extends Controller {
@@ -78,27 +78,27 @@ class StudentController extends Controller {
 		    //update the view
 		    include_once 'views/view_navbar_3_panel.php';  //load the view
 		    break;
-		case "messages":
+	//	case "messages":
 		    //get the model
-		    $messages = new UnderConstruction($this->user, $this->pageTitle, strtoupper($this->getArray['pageID']));
-		    $navigation = new Navigation($this->user, $this->getArray['pageID']);
-		    array_push($this->controllerObjects, $messages, $navigation);
+		//    $messages = new UnderConstruction($this->user, $this->pageTitle, strtoupper($this->getArray['pageID']));
+		//    $navigation = new Navigation($this->user, $this->getArray['pageID']);
+		//    array_push($this->controllerObjects, $messages, $navigation);
 		    //get the content from the model - put into the $data array for the view:
 		    //get the content from the navigation model - put into the $data array for the view:
 		    $data['menuNav'] = $navigation->getMenuNav();       // an array of menu items and associated URLS                    
-		    //get the content from the model - put into the $data array for the view:
-		    $data['pageTitle'] = $messages->getPageTitle();
-		    $data['pageHeading'] = $messages->getPageHeading();
-		    $data['panelHeadRHS'] = $messages->getPanelHead_3(); // A string containing the RHS panel heading/title
-		    $data['panelHeadLHS'] = $messages->getPanelHead_1(); // A string containing the LHS panel heading/title
-		    $data['panelHeadMID'] = $messages->getPanelHead_2();
-		    $data['stringLHS'] = $messages->getPanelContent_1();     // A string intended of the Left Hand Side of the page
-		    $data['stringMID'] = $messages->getPanelContent_2();     // A string intended of the Left Hand Side of the page
-		    $data['stringRHS'] = $messages->getPanelContent_3();     // A string intended of the Right Hand Side of the page
-		    $this->viewData = $data;  //put the content array into a class property for diagnostic purposes
+		 //   //get the content from the model - put into the $data array for the view:
+		 //   $data['pageTitle'] = $messages->getPageTitle();
+		 //   $data['pageHeading'] = $messages->getPageHeading();
+		 //   $data['panelHeadRHS'] = $messages->getPanelHead_3(); // A string containing the RHS panel heading/title
+		 //   $data['panelHeadLHS'] = $messages->getPanelHead_1(); // A string containing the LHS panel heading/title
+		 //   $data['panelHeadMID'] = $messages->getPanelHead_2();
+		 //   $data['stringLHS'] = $messages->getPanelContent_1();     // A string intended of the Left Hand Side of the page
+		 //   $data['stringMID'] = $messages->getPanelContent_2();     // A string intended of the Left Hand Side of the page
+		 //   $data['stringRHS'] = $messages->getPanelContent_3();     // A string intended of the Right Hand Side of the page
+		 //   $this->viewData = $data;  //put the content array into a class property for diagnostic purposes
 		    //update the view
-		    include_once 'views/view_navbar_3_panel.php'; //load the view
-		    break;
+		  //  include_once 'views/view_navbar_3_panel.php'; //load the view
+		   // break;
 
 		case "account":
 		    //create objects to generate view content
