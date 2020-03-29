@@ -160,14 +160,14 @@ class Navigation extends Model {
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=calendar">Calendar</a></li>';
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=logout">Log Out</a></li>';
 			break;
-//                    case "calendar":
-//                        $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=home">Home</a></li>';
-//                        $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=messages">My Messages</a></li>';
-//                        $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=mygrades">My Grades</a></li>';  
-//                        $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=account">My Account</a></li>';
-//                        $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=calculator">Calendar</a></li>';
-//                        $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=logout">Log Out</a></li>';
-//                        break;                    
+                    case "calendar":
+                       $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=home">Home</a></li>';
+                   //   $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=messages">My Messages</a></li>';
+                       $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=mygrades">My Grades</a></li>';  
+                      $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=account">My Account</a></li>';
+                      $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=calculator">Calendar</a></li>';
+                      $this->menuNav.='<li><a href="'.$_SERVER['PHP_SELF'].'?pageID=logout">Log Out</a></li>';
+                      break;                    
 		    case "logout":  //DUMMY CASE - this case is not actually needed!!
 			$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=home">Home</a></li>';
 			//$this->menuNav .= '<li><a href="' . $_SERVER['PHP_SELF'] . '?pageID=messages">My Messages</a></li>';
