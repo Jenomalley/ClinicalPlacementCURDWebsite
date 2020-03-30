@@ -41,7 +41,7 @@ class Home extends Model {
 	$this->setPanelContent_1();
 
 
-	//set the DECOND panel content
+	//set the SECOND panel content
 	$this->setPanelHead_2();
 	$this->setPanelContent_2();
 
@@ -106,7 +106,7 @@ class Home extends Model {
 	if ($this->loggedin) {
 
 	    if ($this->user->getUserType() === 'coordinator') {
-		$this->panelContent_2 = 'Thank you ' . $this->user->getUserFirstName() . ' for logging in successfully as a Coordinator to the Clinical Placements System. Please use the links above to manage your placements, students and grades. <br><br>Don\'t forget to logout when you are done.';
+		$this->panelContent_2 = 'Thank you ' . $this->user->getcoordinatorname() . ' for logging in successfully as a Coordinator to the Clinical Placements System. Please use the links above to manage your placements, students and grades. <br><br>Don\'t forget to logout when you are done.';
 	    } else {
 		$this->panelContent_2 = 'Thank you ' . $this->user->getUserFirstName() . ' for logging in successfully as a STUDENT to the College Online System. Please use the links above to manage your placements, students and grades. <br><br>Don\'t forget to logout when you are done.';
 	    }
