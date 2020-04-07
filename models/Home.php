@@ -108,7 +108,7 @@ class Home extends Model {
 	    if ($this->user->getUserType() === 'coordinator') {
 		$this->panelContent_2 = 'Thank you ' . $this->user->getcoordinatorname() . ' for logging in successfully as a Coordinator to the Clinical Placements System. Please use the links above to manage your placements, students and grades. <br><br>Don\'t forget to logout when you are done.';
 	    } else {
-		$this->panelContent_2 = 'Thank you ' . $this->user->getUserFirstName() . ' for logging in successfully as a STUDENT to the College Online System. Please use the links above to manage your placements, students and grades. <br><br>Don\'t forget to logout when you are done.';
+		$this->panelContent_2 = 'Thank you ' . $this->user->getstudentname() . ' for logging in successfully as a STUDENT to the College Online System. Please use the links above to manage your placements, students and grades. <br><br>Don\'t forget to logout when you are done.';
 	    }
 	} else {
 	    $this->panelContent_2 = 'You are required to login For Clinical Placement Details - Please use the link above to login';

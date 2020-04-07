@@ -4,7 +4,7 @@
  * Class: GeneralController
  * This is the controller for the Not Logged in  user type
  *
- * @author gerry.guinane
+ * 
  * 
  */
 class GeneralController extends Controller {

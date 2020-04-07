@@ -240,7 +240,7 @@ class ClinicalCoordinatorController extends Controller {
 		    break;
 		case "placementsViewEdit":
 		    //create objects to generate view content
-		//    $placements = new Modules($this->user, $this->postArray, $this->pageTitle, strtoupper($this->getArray['pageID']), $this->db, $this->getArray['pageID']);
+		   $placements = new placements($this->user, $this->postArray, $this->pageTitle, strtoupper($this->getArray['pageID']), $this->db, $this->getArray['pageID']);
 		    $navigation = new Navigation($this->user, $this->getArray['pageID']);
 		    array_push($this->controllerObjects, $placements, $navigation);
 
