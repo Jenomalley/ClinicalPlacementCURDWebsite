@@ -82,7 +82,8 @@ class Login extends Model {
 	if ($this->loggedin) {  //display the calculator form
 	    $this->panelContent_1 = 'Welcome To Clinical Placements - your login has been successful';
 	} else { //if user is not logged in they see some info about bootstrap                                   
-	    $this->panelContent_1 = file_get_contents('forms/form_login.html');  //this reads an external form file into the string 
+	    $this->panelContent_1 = WebForms::renderLogin()
+		    ;// file_get_contents('forms/form_login.html');  //this reads an external form file into the string 
 	}
     }
 

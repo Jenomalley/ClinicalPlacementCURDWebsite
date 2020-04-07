@@ -27,6 +27,11 @@ include_once 'models/User.php';
 include_once 'models/Login.php';
 include_once 'models/Register.php';
 include_once 'models/Placements.php';
+include_once 'app/FormTags.php';
+include_once 'app/DatabaseFields.php';
+include_once 'app/WebForms.php';
+
+
 
 //connect to the MySQL Server (with error reporting supression '@')
 @$db = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
@@ -35,7 +40,6 @@ if ($db->connect_errno) {  //check if there is an error in the connection
     $msg = 'Error making connection to MySQL Server using MySQLi- check your server is running and you have the correct host IP address.<br>MySQLi Error message: ' . $conn->connect_error . '<br>';
     exit($msg);
 }
-
 //Create the new session object
 $session = new Session();
 

@@ -43,6 +43,8 @@ class User extends Model {
 	$SQL1 = "SELECT coordinator_name FROM coordinator WHERE coordinator_id='$userID' AND password='$password'";
 	$SQL2 = "SELECT student_name FROM student WHERE student_id='$userID'";
 
+	echo "<h1>$SQL1</h1>";
+	echo "<h1>$SQL2</h1>";
 	//execute the queries to get the 2 resultsets
 
 	$resultSet1 = $this->db->query($SQL1); //query the  placement coordinator table
