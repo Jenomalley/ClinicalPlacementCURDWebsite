@@ -166,7 +166,7 @@ class ClinicalCoordinatorController extends Controller
 		    //process the login details from the login form if the button has been pressed
 		    if (isset($this->postArray['btnLogin']))
 		    {  //check that the login button is pressed
-			$this->loggedin = $this->user->login($this->postArray[FormTags::LoginUsernameInput, $this->postArray[FormTags::LoginPasswordInput]);
+			$this->loggedin = $this->user->login($this->postArray[FormTags::LoginUsernameInput], $this->postArray[FormTags::LoginPasswordInput]);
 			if (!$this->loggedin)
 			{  //if login is not successful keep track of login attempts
 			    $this->user->setLoginAttempts($this->user->getLoginAttempts() + 1); //add 1 to current login attempts
