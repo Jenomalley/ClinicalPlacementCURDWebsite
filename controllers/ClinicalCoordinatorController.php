@@ -194,8 +194,9 @@ class ClinicalCoordinatorController extends Controller
 		    break;
 		case "logout":
 
+		    //echo "<h1>" . "logout-cordinator" . "</h1>";
 		    //Change the login state to false
-		    $this->user->logout(FALSE);
+		    $this->user->logout();
 		    $this->loggedin = FALSE;
 
 		    //create objects to generate view content
@@ -242,7 +243,32 @@ class ClinicalCoordinatorController extends Controller
 		    //update the view
 		    include_once 'views/view_navbar_2_panel.php'; //load the view
 		    break;
+
 		case "placementsViewEdit":
+
+
+		    //create objects to generate view content
+		    $placements = new placements($this->user, $this->postArray, $this->pageTitle, strtoupper($this->getArray['pageID']), $this->db, $this->getArray['pageID']);
+		    $navigation = new Navigation($this->user, $this->getArray['pageID']);
+		    array_push($this->controllerObjects, $placements, $navigation);
+
+
+		    //get the content from the navigation model - put into the $data array for the view:
+		    $data['menuNav'] = $navigation->getMenuNav();       // an array of menu items and associated URLS
+		    //get the content from the page content model  - put into the $data array for the view:
+		    $data['pageTitle'] = $placements->getPageTitle();
+		    $data['pageHeading'] = $placements->getPageHeading();
+		    $data['panelHeadRHS'] = $placements->getPanelHead_2(); // A string containing the RHS panel heading/title
+		    $data['panelHeadLHS'] = $placements->getPanelHead_1(); // A string containing the LHS panel heading/title
+		    $data['panelHeadMID'] = $placements->getPanelHead_2();
+		    $data['stringLHS'] = $placements->getPanelContent_1();     // A string intended of the Left Hand Side of the page
+		    $data['stringMID'] = $placements->getPanelContent_2();     // A string intended of the Left Hand Side of the page
+		    $data['stringRHS'] = $placements->getPanelContent_2();     // A string intended of the Right Hand Side of the page
+		    $this->viewData = $data;  //put the content array into a class property for diagnostic purposes
+		    //update the view
+		    include_once 'views/view_navbar_2_panel.php'; //load the view
+		    break;
+		case "placementAdd":
 		    //create objects to generate view content
 		    $placements = new placements($this->user, $this->postArray, $this->pageTitle, strtoupper($this->getArray['pageID']), $this->db, $this->getArray['pageID']);
 		    $navigation = new Navigation($this->user, $this->getArray['pageID']);
@@ -409,8 +435,7 @@ class ClinicalCoordinatorController extends Controller
 	echo '<section>';
 	echo '<!-- The Debug SECTION -->';
 	echo '<div class="container-fluid"   style="background-color: #AAAAAA">'; //outer DIV
-
-	echo '<h2>Lecturer Controller Class - Debug information</h2><br>';
+	//echo '<h2>Lecturer Controller Class - Debug information</h2><br>';
 
 	echo '<div class="container">';  //INNER DIV
 	//SECTION 1

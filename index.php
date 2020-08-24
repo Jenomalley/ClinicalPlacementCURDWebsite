@@ -1,16 +1,19 @@
 <?php
 
 /*
- * 
+ *
  * @author Jennifer O Malley
- * 
- * 
+ *
+ *
  */
 
 session_start(); //join/start a session between thhebrowser client and Apache web server
 //load application configuration
 include_once 'config/config.php';
 include_once 'config/database.php';
+$dsn = 'mysql:host=' . $DBServer . ';dbname=' . $DBName;
+$databaseConnection = new PDO($dsn, $DBUser, $DBPass);
+
 
 //load classes required by the application
 include_once 'classlib/Controller.php';
@@ -32,11 +35,22 @@ include_once 'app/DatabaseFields.php';
 include_once 'app/WebForms.php';
 
 
+include_once 'app/PlacementDTO.php';
+include_once 'app/PlacementRepository.php';
+
+
+
 
 //connect to the MySQL Server (with error reporting supression '@')
 @$db = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
-@$db->query("SET NAMES 'utf8'"); //make sure database connection is set to support UTF8 characterset 
-if ($db->connect_errno) {  //check if there is an error in the connection
+
+
+
+$placementRepository = new PlacementRepository($databaseConnection);
+
+@$db->query("SET NAMES 'utf8'"); //make sure database connection is set to support UTF8 characterset
+if ($db->connect_errno)
+{  //check if there is an error in the connection
     $msg = 'Error making connection to MySQL Server using MySQLi- check your server is running and you have the correct host IP address.<br>MySQLi Error message: ' . $conn->connect_error . '<br>';
     exit($msg);
 }
@@ -45,15 +59,20 @@ $session = new Session();
 
 $user = new User($session, $db);
 
-if ($user->getLoggedInState()) {
+if ($user->getLoggedInState())
+{
+    //echo "<h1>" . "#Findme07#" . $user->getUserType() . "</h1>";
     //load the appropriate controller for student or lecturer
     //
-    switch ($user->getUserType()) {
+    switch ($user->getUserType())
+    {
 	case "coordinator":  //create new  clinicalCoordinator controller
 	    $controller = new ClinicalCoordinatorController($user, $db);
 	    break;
 
-	case "STUDENT":  //create new STUDENT controller
+	case "student":  //create new STUDENT controller
+	    // echo "<h1>" . "#Findme08.StudentController#" . "</h1>";
+
 	    $controller = new StudentController($user, $db);
 	    break;
 
@@ -61,7 +80,9 @@ if ($user->getLoggedInState()) {
 	    $controller = new GeneralController($user, $db);
 	    break;
     }
-} else {
+}
+else
+{
     //user is not logged in
     //create new general/not logged in controller
     $controller = new GeneralController($user, $db);
@@ -73,7 +94,8 @@ $controller->run();
 
 //close or release any open connections/resources
 //Debug information
-if (DEBUG_MODE) { //two METHODS of getting debug info from the MainController CLass are illustrated here:
+if (DEBUG_MODE)
+{ //two METHODS of getting debug info from the MainController CLass are illustrated here:
     //Comment out whichever method you dont want to use.
     $controller->debug();
 

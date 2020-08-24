@@ -4,10 +4,11 @@
  * Class: MainController
  * This is the main controller class for the web application
  *
- * 
- * 
+ *
+ *
  */
-class MainController extends Controller {
+class MainController extends Controller
+{
 
     //properties
     private $postArray;     //a copy of the content of the $_POST superglobal array
@@ -20,7 +21,8 @@ class MainController extends Controller {
 
     //methods
 
-    function __construct($user, $db) { //constructor   
+    function __construct($user, $db)
+    { //constructor
 	parent::__construct($user->getLoggedinState());
 
 	//initialise all the class properties
@@ -35,14 +37,16 @@ class MainController extends Controller {
 
 //end METHOD - constructor
 
-    public function run() {  // run the controller
+    public function run()
+    {  // run the controller
 	$this->getUserInputs();
 	$this->updateView();
     }
 
 //end METHOD - run the controller
 
-    public function getUserInputs() { // get user input
+    public function getUserInputs()
+    { // get user input
 	//
         //This method is the main interface between the user and the controller.
 	//
@@ -54,9 +58,12 @@ class MainController extends Controller {
 
 //end METHOD - get user input
 
-    public function updateView() { //update the VIEW based on the users page selection
-	if (isset($this->getArray['pageID'])) { //check if a page id is contained in the URL
-	    switch ($this->getArray['pageID']) {
+    public function updateView()
+    { //update the VIEW based on the users page selection
+	if (isset($this->getArray['pageID']))
+	{ //check if a page id is contained in the URL
+	    switch ($this->getArray['pageID'])
+	    {
 		case "home":
 		    //create objects to generate view content
 		    $home = new Home($this->loggedin, 'MVC Example', strtoupper($this->getArray['pageID']));
@@ -78,30 +85,27 @@ class MainController extends Controller {
 		    //update the view
 		    include_once 'views/view_navbar_3_panel.php';  //load the view
 		    break;
-		//case "messages":
-
-
-
+		    //case "messages":
 		    //get the model
-		//    $messages = new UnderConstruction($this->loggedin, 'MVC Example', strtoupper($this->getArray['pageID']));
-		//    $navigation = new Navigation($this->loggedin, $this->getArray['pageID']);
+		    //    $messages = new UnderConstruction($this->loggedin, 'MVC Example', strtoupper($this->getArray['pageID']));
+		    //    $navigation = new Navigation($this->loggedin, $this->getArray['pageID']);
 		    array_push($this->controllerObjects, $messages, $navigation);
 		//    //get the content from the model - put into the $data array for the view:
-		    //get the content from the navigation model - put into the $data array for the view:
-		//    $data['menuNav'] = $navigation->getMenuNav();       // an array of menu items and associated URLS                    
-		    //get the content from the model - put into the $data array for the view:
-		 //   $data['pageTitle'] = $messages->getPageTitle();
-		  //  $data['pageHeading'] = $messages->getPageHeading();
-		  //  $data['panelHeadRHS'] = $messages->getPanelHead_3(); // A string containing the RHS panel heading/title
-		  //  $data['panelHeadLHS'] = $messages->getPanelHead_1(); // A string containing the LHS panel heading/title
-		  //  $data['panelHeadMID'] = $messages->getPanelHead_2();
-		  //  $data['stringLHS'] = $messages->getPanelContent_1();     // A string intended of the Left Hand Side of the page
-		  //  $data['stringMID'] = $messages->getPanelContent_2();     // A string intended of the Left Hand Side of the page
-		   // $data['stringRHS'] = $messages->getPanelContent_3();     // A string intended of the Right Hand Side of the page
-		   // $this->viewData = $data;  //put the content array into a class property for diagnostic purposes
-		    //update the view
-		  //  include_once 'views/view_navbar_3_panel.php'; //load the view
-		  //  break;
+		//get the content from the navigation model - put into the $data array for the view:
+		//    $data['menuNav'] = $navigation->getMenuNav();       // an array of menu items and associated URLS
+		//get the content from the model - put into the $data array for the view:
+		//   $data['pageTitle'] = $messages->getPageTitle();
+		//  $data['pageHeading'] = $messages->getPageHeading();
+		//  $data['panelHeadRHS'] = $messages->getPanelHead_3(); // A string containing the RHS panel heading/title
+		//  $data['panelHeadLHS'] = $messages->getPanelHead_1(); // A string containing the LHS panel heading/title
+		//  $data['panelHeadMID'] = $messages->getPanelHead_2();
+		//  $data['stringLHS'] = $messages->getPanelContent_1();     // A string intended of the Left Hand Side of the page
+		//  $data['stringMID'] = $messages->getPanelContent_2();     // A string intended of the Left Hand Side of the page
+		// $data['stringRHS'] = $messages->getPanelContent_3();     // A string intended of the Right Hand Side of the page
+		// $this->viewData = $data;  //put the content array into a class property for diagnostic purposes
+		//update the view
+		//  include_once 'views/view_navbar_3_panel.php'; //load the view
+		//  break;
 		case "register":
 		    //get the model
 		    $register = new Register($this->postArray, 'MVC Example', strtoupper($this->getArray['pageID']), $this->db, $this->user);
@@ -154,7 +158,7 @@ class MainController extends Controller {
 		    $data['pageTitle'] = $calendar->getPageTitle();
 		    $data['pageHeading'] = $calendar->getPageHeading();
 		    $data['panelHeadRHS'] = $calendar->getPanelHead_2(); // A string containing the RHS panel heading/title
-		    $data['panelHeadLHS'] = $calendar->getPanelHead_1(); // A string containing the LHS panel heading/title 
+		    $data['panelHeadLHS'] = $calendar->getPanelHead_1(); // A string containing the LHS panel heading/title
 		    $data['stringLHS'] = $calendar->getPanelContent_1();     // A string intended of the Left Hand Side of the page
 		    $data['stringRHS'] = $calendar->getPanelContent_2();     // A string intended of the Right Hand Side of the page
 		    $this->viewData = $data;  //put the content array into a class property for diagnostic purposes
@@ -164,9 +168,11 @@ class MainController extends Controller {
 		case 'login':
 
 		    //process the login details from the login form if the button has been pressed
-		    if (isset($this->postArray['btnLogin'])) {  //check that the login button is pressed
+		    if (isset($this->postArray['btnLogin']))
+		    {  //check that the login button is pressed
 			$this->loggedin = $this->user->login($this->postArray['userID'], $this->postArray['password']);
-			if (!$this->loggedin) {  //if login is not successful keep track of login attempts
+			if (!$this->loggedin)
+			{  //if login is not successful keep track of login attempts
 			    $this->user->setLoginAttempts($this->user->getLoginAttempts() + 1); //add 1 to current login attempts
 			}
 		    }
@@ -187,13 +193,15 @@ class MainController extends Controller {
 		    $data['stringLHS'] = $login->getPanelContent_1();     // A string intended of the Left Hand Side of the page
 		    $this->viewData = $data;  //put the content array into a class property for diagnostic purposes
 		    //update the view
-		    include_once 'views/view_navbar_2_panel.php'; //load the view                  
+		    include_once 'views/view_navbar_2_panel.php'; //load the view
 
 		    break;
 		case "logout":
 
+		    echo "<h1>" . "logout-main" . "</h1>";
+
 		    //Change the login state to false
-		    $this->user->logout(FALSE);
+		    $this->user->logout();
 		    $this->loggedin = FALSE;
 
 
@@ -215,7 +223,7 @@ class MainController extends Controller {
 		    $data['stringRHS'] = $logout->getPanelContent_3();     // A string intended of the Right Hand Side of the page
 		    $this->viewData = $data;  //put the content array into a class property for diagnostic purposes
 		    //update the view
-		    include_once 'views/view_navbar_3_panel.php'; //load the view                  
+		    include_once 'views/view_navbar_3_panel.php'; //load the view
 
 
 		    break;
@@ -284,7 +292,7 @@ class MainController extends Controller {
 		    include_once 'views/view_navbar_3_panel.php'; //load the view
 		    break;
 		default:
-		    //no page selected 
+		    //no page selected
 		    //create objects to generate view content
 		    $home = new Home($this->loggedin, 'MVC Example', strtoupper($this->getArray['pageID']));
 		    $navigation = new Navigation($this->loggedin, $this->getArray['pageID']);
@@ -306,7 +314,9 @@ class MainController extends Controller {
 		    include_once 'views/view_navbar_3_panel.php';
 		    break;
 	    }
-	} else {//no page selected and NO page ID passed in the URL 
+	}
+	else
+	{//no page selected and NO page ID passed in the URL
 	    //no page selected - default loads HOME page
 	    //create objects to generate view content
 	    $home = new Home($this->loggedin, 'MVC Example', 'HOME');
@@ -335,7 +345,8 @@ class MainController extends Controller {
 
 
 
-    public function debug() {   //Diagnostics/debug information - dump the application variables if DEBUG mode is on
+    public function debug()
+    {   //Diagnostics/debug information - dump the application variables if DEBUG mode is on
 	echo '<section>';
 	echo '<!-- The Debug SECTION -->';
 	echo '<div class="container-fluid"   style="background-color: #AAAAAA">'; //outer DIV
@@ -349,9 +360,12 @@ class MainController extends Controller {
 	echo '<section style="background-color: #BBBBB">';
 	echo '<h4>User Logged in Status:</h4>';
 	echo '<section style="background-color: #FFFFFF">';
-	if ($this->loggedin) {
+	if ($this->loggedin)
+	{
 	    echo 'User Logged In state is TRUE ($loggedin) <br>';
-	} else {
+	}
+	else
+	{
 	    echo 'User Logged In state is FALSE ($loggedin) <br>';
 	}
 	echo '</section>';
@@ -385,7 +399,8 @@ class MainController extends Controller {
 	echo '<h4>$_GET Arrays</h4>';
 	echo '<section style="background-color: #FFFFFF">';
 	echo '<table class="table table-bordered"><thead><tr><th>KEY</th><th>VALUE</th></tr></thead>';
-	foreach ($_GET as $key => $value) {
+	foreach ($_GET as $key => $value)
+	{
 	    echo '<tr><td>' . $key . '</td><td>' . $value . '</td></tr>';
 	}
 	echo '</table>';
@@ -394,7 +409,8 @@ class MainController extends Controller {
 	echo '<h4>$_POST Array</h4>';
 	echo '<section style="background-color: #FFFFFF">';
 	echo '<table class="table table-bordered"><thead><tr><th>KEY</th><th>VALUE</th></tr></thead>';
-	foreach ($_POST as $key => $value) {
+	foreach ($_POST as $key => $value)
+	{
 	    echo '<tr><td>' . $key . '</td><td>' . $value . '</td></tr>';
 	}
 	echo '</table>';
@@ -407,7 +423,7 @@ class MainController extends Controller {
 	echo '</section>';
     }
 
-// end METHOD - Diagnostics/debug information       
+// end METHOD - Diagnostics/debug information
 }
 
 //end CLASS

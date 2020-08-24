@@ -4,9 +4,10 @@
  * Class: Register
  *
  *
- * 
+ *
  */
-class Register extends Model {
+class Register extends Model
+{
 
     //class properties
     private $db;
@@ -21,7 +22,8 @@ class Register extends Model {
     private $panelHead_3;
     private $panelContent_3;
 
-    function __construct($postArray, $pageTitle, $pageHead, $database, $user) {
+    function __construct($postArray, $pageTitle, $pageHead, $database, $user)
+    {
 	parent::__construct($user->getLoggedinState());
 
 	$this->db = $database;
@@ -52,42 +54,50 @@ class Register extends Model {
     }
 
     //setter methods
-    public function setPageTitle($pageTitle) { //set the page title    
+    public function setPageTitle($pageTitle)
+    { //set the page title
 	$this->pageTitle = $pageTitle;
     }
 
-//end METHOD -   set the page title       
+//end METHOD -   set the page title
 
-    public function setPageHeading($pageHead) { //set the page heading  
+    public function setPageHeading($pageHead)
+    { //set the page heading
 	$this->pageHeading = $pageHead;
     }
 
 //end METHOD -   set the page heading
     //Panel 1
-    public function setPanelHead_1() {//set the panel 1 heading
+    public function setPanelHead_1()
+    {//set the panel 1 heading
 	$this->panelHead_1 = '<h3>Registration Form</h3>';
     }
 
 //end METHOD - //set the panel 1 heading
 
-    public function setPanelContent_1() {//set the panel 1 content                                  
-	$this->panelContent_1 = file_get_contents('forms/form_register.html');  //this reads an external form file into the string 
+    public function setPanelContent_1()
+    {//set the panel 1 content
+	$this->panelContent_1 = file_get_contents('forms/form_register.html');  //this reads an external form file into the string
     }
 
-//end METHOD - //set the panel 1 content        
+//end METHOD - //set the panel 1 content
     //Panel 2
-    public function setPanelHead_2() { //set the panel 2 heading       
+    public function setPanelHead_2()
+    { //set the panel 2 heading
 	$this->panelHead_2 = '<h3>Registration Result</h3>';
     }
 
-//end METHOD - //set the panel 2 heading     
+//end METHOD - //set the panel 2 heading
 
-    public function setPanelContent_2() {//set the panel 2 content
+    public function setPanelContent_2()
+    {//set the panel 2 content
 	$coordinatorPass1Input = "ClinicalCoordinatorPass1";
 	//process the registration button
-	if (isset($this->postArray['btn'])) {
+	if (isset($this->postArray['btn']))
+	{
 
-	    if ($this->postArray[$coordinatorPass1Input] === $this->postArray['ClinicalCoordinatorPass2']) {  //verify passwords match
+	    if ($this->postArray[$coordinatorPass1Input] === $this->postArray['ClinicalCoordinatorPass2'])
+	    {  //verify passwords match
 		//process the registration data
 		//verify passwords match
 		//process the registration data
@@ -99,14 +109,19 @@ class Register extends Model {
 		$this->panelContent_2 .= 'password1 : ' . $this->postArray[$coordinatorPass1Input] . '<br>';
 		$this->panelContent_2 .= 'password2 : ' . $this->postArray['ClinicalCoordinatorPass2'] . '<br>';
 
-		if ($this->user->register($this->postArray)) {
+		if ($this->user->register($this->postArray))
+		{
 		    $this->panelContent_2 .= 'REGISTRATION SUCCESSFUL - please log in<br>';
-		} else {
+		}
+		else
+		{
 		    $this->panelContent_2 .= 'REGISTRATION NOT SUCCESSFUL<br>';
 		}
-	    } else {
+	    }
+	    else
+	    {
 		$this->panelContent_2 = 'Passwords DONT Match<br>';
-		$this->panelContent_2 .= 'User ID   : ' . $this->postArray['coordinatorcoordinatorid'] . '<br>';
+		$this->panelContent_2 .= 'User ID   : ' . $this->postArray['coordinatorid'] . '<br>';
 		$this->panelContent_2 .= 'Placement Coordinator Name : ' . $this->postArray['coordinatorcoordinatorname'] . '<br>';
 		$this->panelContent_2 .= 'User ID   : ' . $this->postArray['coordinatorid'] . '<br>';
 		//$this->panelContent_2.='Firstname : '.$this->postArray['lectFirstName'].'<br>';
@@ -114,74 +129,93 @@ class Register extends Model {
 		$this->panelContent_2 .= 'PassWord1 : ' . $this->postArray[$coordinatorPass1Input] . '<br>';
 		$this->panelContent_2 .= 'PassWord2 : ' . $this->postArray['ClinicalCoordinatorPass2'] . '<br>';
 	    }
-	} else {
+	}
+	else
+	{
 	    $this->panelContent_2 = 'Please enter details in the form';
 	}
     }
 
-//end METHOD - //set the panel 2 content  
+//end METHOD - //set the panel 2 content
     //Panel 3
-    public function setPanelHead_3() { //set the panel 3 heading
-	if ($this->loggedin) {
+    public function setPanelHead_3()
+    { //set the panel 3 heading
+	if ($this->loggedin)
+	{
 	    $this->panelHead_3 = '<h3>Panel 3</h3>';
-	} else {
+	}
+	else
+	{
 	    $this->panelHead_3 = '<h3>Panel 3</h3>';
 	}
     }
 
 //end METHOD - //set the panel 3 heading
 
-    public function setPanelContent_3() { //set the panel 2 content
-	if ($this->loggedin) {
+    public function setPanelContent_3()
+    { //set the panel 2 content
+	if ($this->loggedin)
+	{
 	    $this->panelContent_3 = 'Panel 3 content - unser construction (user logged in)';
-	} else {
+	}
+	else
+	{
 	    $this->panelContent_3 = 'Panel 3 content - unser construction (user not logged in)';
 	}
     }
 
-//end METHOD - //set the panel 2 content        
+//end METHOD - //set the panel 2 content
     //getter methods
-    public function getPageTitle() {
+    public function getPageTitle()
+    {
 	return $this->pageTitle;
     }
 
-    public function getPageHeading() {
+    public function getPageHeading()
+    {
 	return $this->pageHeading;
     }
 
-    public function getMenuNav() {
+    public function getMenuNav()
+    {
 	return $this->menuNav;
     }
 
-    public function getPanelHead_1() {
+    public function getPanelHead_1()
+    {
 	return $this->panelHead_1;
     }
 
-    public function getPanelContent_1() {
+    public function getPanelContent_1()
+    {
 	return $this->panelContent_1;
     }
 
-    public function getPanelHead_2() {
+    public function getPanelHead_2()
+    {
 	return $this->panelHead_2;
     }
 
-    public function getPanelContent_2() {
+    public function getPanelContent_2()
+    {
 	return $this->panelContent_2;
     }
 
-    public function getPanelHead_3() {
+    public function getPanelHead_3()
+    {
 	return $this->panelHead_3;
     }
 
-    public function getPanelContent_3() {
+    public function getPanelContent_3()
+    {
 	return $this->panelContent_3;
     }
 
-    public function getUser() {
+    public function getUser()
+    {
 	return $this->user;
     }
 
 }
 
 //end class
-        

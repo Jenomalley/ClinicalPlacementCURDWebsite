@@ -38,6 +38,8 @@ class User extends Model
 
     public function login($userID, $password)
     {
+//	echo "<h1>$password</h1>";
+
 	$password = hash('ripemd160', $password);
 
 	$SQL1 = "SELECT " .
@@ -47,8 +49,9 @@ class User extends Model
 		" WHERE " . DatabaseFields::UserId . "='" . $userID . "' " .
 		" AND " . DatabaseFields::Password . "='$password'";
 
-//	echo "<h1>$SQL1</h1>";
 
+//	echo "<h1>$SQL1</h1>";
+//	return;
 	$resultSet1 = $this->db->query($SQL1); //query the  placement coordinator table
 
 	if ($resultSet1 == null)
@@ -102,15 +105,33 @@ class User extends Model
 	$coordinatorid = $this->db->real_escape_string($postArray['coordinatorid']);
 	$coordinatorusername = $this->db->real_escape_string($postArray['coordinatorname']);
 
+	$email = $this->db->real_escape_string($postArray['coordinatoremail']);
+	$tel = $this->db->real_escape_string($postArray['coordinatortel']);
+
 	// $lastName=$this->db->real_escape_string($postArray['coordinatorLastName']);
 	$password = $this->db->real_escape_string($postArray['ClinicalCoordinatorPass1']);
 	//encrypt the password
 	$password = hash('ripemd160', $password);
 	//construct the INSERT SQL
-	$sql = "INSERT INTO  coordinator (coordinator_id,coordinator_name,password) VALUES ('$coordinatorid','$coordinatorusername','$password')";
+
+	$insertUserSql = "INSERT INTO `placement_fyp`.`login`
+(`user_id`,
+`password`)
+VALUES
+(
+" . $coordinatorid . ", '" . $password . "');
+";
+	$sql = "INSERT INTO `placement_fyp`.`coordinator`
+(`coordinator_id`,
+`coordinator_name`,
+`coordinator_phonenum`,
+`coordinator_email`)
+VALUES('$coordinatorid','$coordinatorusername','$tel','$email')";
 
 	//$sql="INSERT INTO lecturer (LectID,FirstName,LastName,PassWord) VALUES ('".$postArray['lectID']."','".$postArray['lectFirstName']."','".$postArray['lectLastName']."','".$postArray['lectPass1']."')";
 	//execute the insert query
+	//echo "<h1>" . $sql . "</h1>";
+	$rs1 = $this->db->query($insertUserSql);
 	$rs = $this->db->query($sql);
 	//check the insert query worked
 	if ($rs)

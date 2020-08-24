@@ -128,12 +128,12 @@ class Student extends Model
 	    switch ($this->postArray[FormTags::StudentQueryButton])
 	    { //check which button is pressed
 		case 'studentQuery':  //the student query button has been pressed
-		    $sql = 'SELECT ' . DatabaseFields::StudentId . ', ' . DatabaseFields::StudentName . ' FROM ' . DatabaseFields::StudentTable . ' WHERE ' . DatabaseFields::StudentId . '="' . $this->postArray[FormTags::StudentQueryIdInput] . '"';
-
+		    $sql = 'SELECT * FROM ' . DatabaseFields::StudentTable . ' WHERE ' . DatabaseFields::StudentId . '="' . $this->postArray[FormTags::StudentQueryIdInput] . '"';
+		    //Todo: Better way $sql = "GetStudent(" . $this->postArray[FormTags::StudentQueryIdInput] . ")";
 		    $this->panelContent_2 .= '<p>Selected Student ID: ' . $this->postArray[FormTags::StudentQueryIdInput] . '</p></br>';
 
 		    $rs = $this->db->query($sql);
-		    echo "<h1>$sql</h1>";
+		    // echo "<h1>$sql</h1>";
 
 		    if ($rs == null)
 		    {
@@ -148,7 +148,19 @@ class Student extends Model
 		    {  //execute the query and check it worked and returned data
 			//iterate through the resultset to create a HTML table
 			$this->panelContent_2 .= '<table class="table table-bordered">';
-			$this->panelContent_2 .= '<tr><th>StudentID</th><th>First Name</th><th>Last Name</th><th>Transcript</th></tr>'; //table headings
+			$this->panelContent_2 .= '<tr>'
+				. '<th>Student ID</th>'
+				. '<th>Name</th>'
+				//. '<th>Transcript</th>'
+				. '<th>Student Year</th>'
+				. '<th>Grade ID</th>'
+				. '<th>Coordinator Name</th>'
+				. '<th>Placement ID</th>'
+				. '<th>Placement Supervisor ID</th>'
+				. '<th>Coordinator ID</th>'
+				. '<th>User ID</th>'
+				. '<th> Placement Name</th>'
+				. '</tr>'; //table headings
 			while ($row = $rs->fetch_assoc())
 			{ //fetch associative array from resultset
 			    $this->panelContent_2 .= '<tr>'; //--start table row

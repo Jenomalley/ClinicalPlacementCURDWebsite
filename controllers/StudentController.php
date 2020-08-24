@@ -60,8 +60,10 @@ class StudentController extends Controller
 
     public function updateView()
     { //update the VIEW based on the users page selection
+	//echo "<h1>" . "StudentController.updateView" . "</h1>";
 	if (isset($this->getArray['pageID']))
-	{ //check if a page id is contained in the URL
+	{ //ch1eck if a page id is contained in the URL
+	    //echo "<h1>" . "#Findme05#" . $this->getArray['pageID'] . "</h1>";
 	    switch ($this->getArray['pageID'])
 	    {
 		case "home":
@@ -239,7 +241,8 @@ class StudentController extends Controller
 		case "logout":
 
 		    //Change the login state to false
-		    $this->user->logout(FALSE);
+		    //echo "<h1>" . "logout-student" . "</h1>";
+		    $this->user->logout();
 		    $this->loggedin = FALSE;
 
 		    //create objects to generate view content
@@ -265,6 +268,8 @@ class StudentController extends Controller
 		    break;
 
 		case "mygrades":
+		    echo "<h1>" . "#Findme01#" . "</h1>";
+
 		    //create objects to generate view content
 		    $grades = new UnderConstruction($this->loggedin, $this->pageTitle, strtoupper($this->getArray['pageID']));
 		    $navigation = new Navigation($this->user, $this->getArray['pageID']);

@@ -27,7 +27,7 @@ class DatabaseFields
     const PlacementName = "placement_name";
     const PlacementEmail = "placement_email";
     const PlacementPhone = "placement_phonenum";
-    const PlacementGPS = "placement_gps_coordinates";
+    //const PlacementGPS = "placement_gps_coordinates";
     const PlacementStatus = "placement_status";
     const SupervisorTable = "supervisor";
     const PlacementSupervisorName = "placement_supervisor_name";
